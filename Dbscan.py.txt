@@ -1,0 +1,15 @@
+from sklearn.datasets import load_iris
+iris = load_iris()
+iris.data
+print iris.target
+from sklearn.cluster import DBSCAN
+db=DBSCAN(eps=0.5,min_samples=5)
+KMmodel=db.fit(iris.data)  
+print KMmodel.labels_
+#KMmodel.cluster_centers_
+import pandas as pd
+print pd.crosstab(iris.target ,KMmodel.labels_)
+import matplotlib.pyplot as plt
+plt.plot(KMmodel.labels_)
+plt.ylabel('clusters by DBSCAN')
+plt.show()

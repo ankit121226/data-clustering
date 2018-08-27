@@ -1,0 +1,16 @@
+from sklearn.datasets import load_iris
+iris = load_iris()
+iris.data
+print (iris.target)
+from sklearn.cluster import KMeans
+#number of cluster is 2 from the DBSCAN algorithm
+kmeans=KMeans(n_clusters=2)
+KMmodel=kmeans.fit(iris.data)  
+print KMmodel.labels_
+KMmodel.cluster_centers_
+import pandas as pd
+print pd.crosstab(iris.target ,KMmodel.labels_)
+import matplotlib.pyplot as plt
+plt.plot(KMmodel.labels_)
+plt.ylabel('clusters by hybrid algorithm')
+plt.show()

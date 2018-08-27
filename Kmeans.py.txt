@@ -1,0 +1,22 @@
+from sklearn.datasets import load_iris
+iris = load_iris()
+iris.data
+print iris.target
+
+#import numpy as np
+
+from sklearn.cluster import KMeans
+kmeans=KMeans(n_clusters=3)
+KMmodel=kmeans.fit(iris.data)  
+print KMmodel.labels_
+KMmodel.cluster_centers_
+import pandas as pd
+print pd.crosstab(iris.target ,KMmodel.labels_)
+import matplotlib.pyplot as plt
+plt.plot(KMmodel.labels_)
+plt.ylabel('clusters by Kmeans')
+plt.show()
+#plt.imshow(KMmodel.labels_)
+#plt.colorbar()
+#plt.show()
+
